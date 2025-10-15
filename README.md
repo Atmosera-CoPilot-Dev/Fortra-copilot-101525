@@ -34,13 +34,6 @@ Email: andrew.scoppa@atmosera.com
 
 [Copilot Chat Cookbook](https://docs.github.com/en/copilot/copilot-chat-cookbook)
 
-C
-
-
-
-
-
-S
 
 
 
