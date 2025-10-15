@@ -12,21 +12,14 @@
 git add .
 
 # commit changes with message 'Updated'
-git commit -m "Updated"
+git commit -m "Synchronized"
 
 # pull changes from remote repository on branch 'main'
-git pull origin main
+git pull 
 
 # push changes to remote repository on branch 'main'.
-git push origin main
+git push 
 
-# check if the push was successful
-if [ $? -eq 0 ]; then
-  echo "Push was successful"
-else
-  echo "Push failed"
-fi
-# end of script
-exit 0
+
 
 
