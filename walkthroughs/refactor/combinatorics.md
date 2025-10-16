@@ -15,7 +15,9 @@ This file contains a class that provides operations in the mathematical field of
 
 namespace MathFun
 {
-
+    /// <summary>
+    /// Provides operations in the mathematical field of combinatorics, including factorial, permutation, and combination calculations.
+    /// </summary>
     public class Combinatorics
     {
         /*
@@ -25,26 +27,57 @@ namespace MathFun
         if n is less than or equal to 1, return 1
         return n * fact(n - 1)
         */
+        /// <summary>
+        /// Dictionary to cache computed factorials for memoization.
+        /// </summary>
+        private static System.Collections.Generic.Dictionary<uint, ulong> factCache = new System.Collections.Generic.Dictionary<uint, ulong>();
+
+        /// <summary>
+        /// Calculates the factorial of a non-negative integer n using recursion and memoization.
+        /// </summary>
+        /// <param name="n">The non-negative integer for which to calculate the factorial.</param>
+        /// <returns>The factorial of n as an unsigned long integer.</returns>
         public static ulong fact(uint n)
         {
+            if (factCache.ContainsKey(n))
+            {
+                return factCache[n];
+            }
+            ulong result;
             if (n <= 1)
             {
-                return 1;
+                result = 1;
             }
-            return n * fact(n - 1);
+            else
+            {
+                result = n * fact(n - 1);
+            }
+            factCache[n] = result;
+            return result;
         }
 
-        /*
-        Define a public method named 'perm' that takes two unsigned integers 'n' and 'r' and returns the permutation of 'n' and 'r':
-        Implementation details:
-
-        The permutation of 'n' and 'r' is defined as n! / (n - r)!
-        */
+        /// <summary>
+        /// Calculates the number of permutations of n items taken r at a time.
+        /// </summary>
+        /// <param name="n">The total number of items.</param>
+        /// <param name="r">The number of items to arrange.</param>
+        /// <returns>The number of permutations as an unsigned long integer.</returns>
         public static ulong perm(uint n, uint r)
         {
             return fact(n) / fact(n - r);
         }
 
+
+        /// <summary>
+        /// Calculates the number of combinations of n items taken r at a time.
+        /// </summary>
+        /// <param name="n">The total number of items.</param>
+        /// <param name="r">The number of items to choose.</param>
+        /// <returns>The number of combinations as an unsigned long integer.</returns>
+        public static ulong comb(uint n, uint r)
+        {
+            return fact(n) / (fact(r) * fact(n - r));
+        }
 
   
     }
