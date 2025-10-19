@@ -2,13 +2,6 @@
 
 /*
 
-Requirements (concise design goals):
-1. Consistent naming & keys: singular tables, primary key id, foreign keys <table>_id, constraint names fk_<table>_<column>.
-2. Data integrity: enforce referential integrity; constrain lengths and use precise data types.
-3. Performance: efficient queries with appropriate types; nonclustered indexes on foreign key columns.
-4. Encapsulated logic: views, stored procedures, functions, triggers for reusable automation.
-5. Testability: seed representative sample data to validate schema and generated scripts.
-
 Steps (instructional prompts for Copilot):
 1) If database Inventory exists, drop and recreate it; then USE it.
 2) Create table suppliers with an identity/int primary key id and columns for name (required, 50), optional address (255), city (required, 50), state (2, required).
